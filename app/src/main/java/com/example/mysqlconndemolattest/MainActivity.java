@@ -34,10 +34,16 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    String url="http://sislatur.org.in/drs/getAllEmp.php";
-    String url1="http://sislatur.org.in/drs/insertEmp.php";
-    String updateempurl="http://sislatur.org.in/drs/updateEmp.php";
-    String deleteempurl="http://sislatur.org.in/drs/deleteEmp.php";
+//    String url="http://sislatur.org.in/drs/getAllEmp.php";
+//    String url1="http://sislatur.org.in/drs/insertEmp.php";
+//    String updateempurl="http://sislatur.org.in/drs/updateEmp.php";
+//    String deleteempurl="http://sislatur.org.in/drs/deleteEmp.php";
+
+    String url="http://reslatur.org.in/drs/getAllEmp.php";
+    String url1="http://reslatur.org.in/drs/insertEmp.php";
+    String updateempurl="http://reslatur.org.in/drs/updateEmp.php";
+    String deleteempurl="http://reslatur.org.in/drs/deleteEmp.php";
+
     public List<Employee> allemp;
     ListView lst;
    // ArrayAdapter adapter;
@@ -51,15 +57,11 @@ public class MainActivity extends AppCompatActivity {
         loademp();
         allemp=new ArrayList<Employee>();
         lst=findViewById(R.id.lst1);
-
         registerForContextMenu(lst);
-
        lst.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
            @Override
            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-
                selectedemp=(Employee) adapterView.getItemAtPosition(i);
-
                return false;
            }
        });
@@ -92,21 +94,6 @@ public class MainActivity extends AppCompatActivity {
            txtaddress.setText("" + selectedemp.getAddress().toString());
            txtcontact.setText("" + selectedemp.getContact().toString());
 
-//           Button btnupdate=customLayout.findViewById(R.id.btnupdate);
-//           btnupdate.setOnClickListener(new View.OnClickListener() {
-//               @Override
-//               public void onClick(View view) {
-//
-//                   int id=selectedemp.getId();
-//                   String fullname=txtfullname.getText().toString();
-//                   String address=txtaddress.getText().toString();
-//                   String contact=txtcontact.getText().toString();
-//                   updateemp(id,fullname,address,contact);
-//
-//               }
-//           });
-
-
            b.setView(customLayout);
 
            AlertDialog d=b.create();
@@ -117,19 +104,13 @@ public class MainActivity extends AppCompatActivity {
                @Override
                public void onClick(View view) {
 
-
                    String fullname=txtfullname.getText().toString();
                    String address=txtaddress.getText().toString();
                    String contact=txtcontact.getText().toString();
 
-                   //String msg=fullname + ":"  +address + ":" + contact;
-
-                   //Toast.makeText(MainActivity.this, "" + msg, Toast.LENGTH_SHORT).show();
 
                    int id=selectedemp.getId();
-                   //String fullname=txtfullname.getText().toString();
-                   //String address=txtaddress.getText().toString();
-                   //String contact=txtcontact.getText().toString();
+
                    updateemp(id,fullname,address,contact);
                    lst.invalidateViews();
 

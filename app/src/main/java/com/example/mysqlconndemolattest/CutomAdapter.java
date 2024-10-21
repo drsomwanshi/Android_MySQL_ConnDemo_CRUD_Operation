@@ -49,7 +49,6 @@ public class CutomAdapter  extends BaseAdapter {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view1 = inflater.inflate(R.layout.list_item_view, null, true);
 
-
         TextView txtfullname=view1.findViewById(R.id.txtfullname);
         TextView txtaddress=view1.findViewById(R.id.txtaddress);
         TextView txtcontact=view1.findViewById(R.id.txtcontact);
